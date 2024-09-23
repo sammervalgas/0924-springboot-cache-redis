@@ -8,6 +8,7 @@ spring:
   h2:
     console:
       enabled: true
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -15,4 +16,11 @@ spring:
     dialect: org.hibernate.dialect.H2Dialect
 
   cache:
-    type: simple
+    type: redis  # Aqui estamos definindo Redis como o mecanismo de cache padrão
+
+  redis:
+    host: localhost
+    port: 6379
+    # Se precisar usar senha no Redis, descomente a linha abaixo
+    # password: my_redis_password
+    time-to-live: 600000 # 10 minutos de TTL para os caches armazenados no Redis

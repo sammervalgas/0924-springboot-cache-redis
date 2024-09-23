@@ -2,6 +2,8 @@ package br.com.devbean.parametrization.memcache.services;
 
 import br.com.devbean.parametrization.memcache.entities.ParametrizationEntity;
 import br.com.devbean.parametrization.memcache.respositories.ParametrizationRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -18,11 +20,6 @@ public class ParametrizationServiceImpl implements ParametrizationService {
 
     private final ParametrizationRepository parametrizationRepository;
 
-    /**
-     * Construtor que injeta o repositório de parametrização.
-     *
-     * @param parametrizationRepository Repositório responsável por interagir com a camada de dados.
-     */
     public ParametrizationServiceImpl(ParametrizationRepository parametrizationRepository) {
         this.parametrizationRepository = parametrizationRepository;
     }

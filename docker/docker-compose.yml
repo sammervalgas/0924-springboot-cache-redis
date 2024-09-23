@@ -1,0 +1,13 @@
+version: '3'
+services:
+  redis-local:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    restart: always
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8081:8080"
